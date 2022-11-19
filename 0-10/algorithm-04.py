@@ -1,6 +1,6 @@
 # the weekend
 
-print("===== The Weekend- C =====");
+print("===== The Weekend - C =====");
 print("See prevision time.");
 		
 print("If(to be sun)");
