@@ -1,4 +1,7 @@
-// chew a gum
+// Chew a gum
+// Aguiar - computer science
+// University Federal of Ceará - campus Crateus
+
 #include <stdio.h>
 
 int main(){

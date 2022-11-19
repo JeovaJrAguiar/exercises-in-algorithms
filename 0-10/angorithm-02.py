@@ -1,4 +1,6 @@
-# chew a gum
+# Chew a gum
+# Aguiar - computer science
+# University Federal of Ceara - campus Crateus
 
 print("===== Chew the gum - Python =====")
 print(" Get the gum")

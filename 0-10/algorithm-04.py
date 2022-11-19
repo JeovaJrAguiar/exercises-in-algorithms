@@ -1,4 +1,6 @@
-# the weekend
+# The weekend
+# Aguiar - computer science
+# University Federal of Ceara - campus Crateus
 
 print("===== The Weekend - C =====");
 print("See prevision time.");

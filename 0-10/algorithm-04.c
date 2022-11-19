@@ -1,4 +1,7 @@
-// the weekend
+// The weekend
+// Aguiar - computer science
+// University Federal of Ceará - campus Crateus
+
 #include <stdio.h>
 
 int main(){

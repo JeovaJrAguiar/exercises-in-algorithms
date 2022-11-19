@@ -1,4 +1,6 @@
-# change the lamp
+# Change the lamp
+# Aguiar - computer science
+# University Federal of Ceara - campus Crateus
 
 print("===== Change the lamp - Python =====");
 	

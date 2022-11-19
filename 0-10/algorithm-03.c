@@ -1,4 +1,6 @@
 // Chenge the lamp
+// Aguiar - computer science
+// University Federal of Ceará - campus Crateus
 
 #include <stdio.h>
 #include <stdlib.h>

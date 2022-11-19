@@ -1,4 +1,6 @@
-# fry an egg
+# Fry an egg
+# Aguiar - computer science
+# University Federal of Ceara - campus Crateus
 
 print("\n === Fry an Egg - Python ===")
 print("Get a skellt, oil and egg.")

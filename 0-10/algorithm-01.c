@@ -1,4 +1,6 @@
-// fry an egg
+// Fry an egg
+// Aguiar - computer science
+// University Federal of Ceará - campus Crateus
 #include <stdio.h>
 
 int main(){
