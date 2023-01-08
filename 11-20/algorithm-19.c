@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// analisar algoritmo logaritmo em <https://linux.ime.usp.br/~lucasmmg/livecd/documentacao/documentos/mac122/floor-lg.html>
 
 float raiz(float numero){
 	float precisao = 0.000001;
