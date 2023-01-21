@@ -11,23 +11,34 @@ float raiz(float numero){
 	float precisao = 0.000001;
 	float b = numero, a = 1;
 	
-	printf("\nprecisao - a        - b        - numero");
 	while((b-a) >= precisao){
 		b = (a+b)/2;
 		a = numero / b;
-
-		printf("\n%.6f - %.6f - %.6f - %f", precisao, a, b, numero);
 	}
-
-	printf("\n\n%.6f - %.6f - %.6f - %f\n", precisao, a, b, numero);
 	return b;
+}
+
+float powAux(float x, float y){
+	float aux = x;
+	for(int i=1; i <= y; i++){
+		aux = aux * x;
+	}
+	return aux;
+}
+
+int powAuxByInteger(int x, int y){
+        float aux = x;
+        for(int i=1; i < y; i++){
+                aux = aux * x;
+        }
+        return aux;
 }
 
 int main(){
 	printf("\n===== Basic Operations - C =====\n");
-
-
-	printf("raiz: %.2f . raiz(64)\n", raiz(9));
+	
+	printf("raiz: %.2f          raiz(64)\n", raiz(64));
+	printf("exponencial: %d     expo(%d, %d)\n", powAuxByInteger(4, 3), 4, 3);
 
 	return 0;
 }
