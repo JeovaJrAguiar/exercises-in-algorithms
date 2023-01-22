@@ -39,6 +39,6 @@ int main(){
 	
 	printf("raiz: %.2f          raiz(64)\n", raiz(64));
 	printf("exponencial: %d     expo(%d, %d)\n", powAuxByInteger(4, 3), 4, 3);
-
+	printf("absoluto: %d        abs(-378)\n", abs(-378));
 	return 0;
 }
