@@ -13,7 +13,6 @@ def eh_primo(num):
 
     return True
 
-
 def main():
     num = int(input("Insira o numero: "))
     if eh_primo(num):

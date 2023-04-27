@@ -1,0 +1,17 @@
+def sum(n):
+    i = 0
+    sum = n+1 
+
+    if nsum:
+        if n%1 == 0:
+            if n/1 != 1:
+                sum +=1
+                sum += n/1
+            else:
+                sum += 1
+    return sum
+
+def main():
+    print("tres trecos de tigre tristes")
+
+main        
