@@ -8,13 +8,11 @@ import sys
 
 def countingSort(arr):
     n = len(arr)
-    arrRetorno = [0]
-    for i in range(n-1):
-        arrRetorno.append(0)
-
-    for value in arr:
-        arrRetorno[value] = arrRetorno[value] + 1
+    arrRetorno = [0] * 100
         
+    for value in arr:
+        arrRetorno[value] += 1
+    
     return arrRetorno
 
 if __name__ == '__main__':
