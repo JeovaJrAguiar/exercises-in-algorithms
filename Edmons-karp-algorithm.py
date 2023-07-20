@@ -30,19 +30,21 @@ def is_visited(grafo, verticeAtual):
     for vertice in grafo[0]:
         if vertice[1] and vertice[0] == verticeAtual[0]:
             return True
-    return False 
+    return False
 
 # busca um vertice no grafo baseado 
 def find_vertex(grafo, vertice_identificador):
     for vertice in grafo[0]:
-        #print(f"{vertice} : {vertice_identificador}")
-        if vertice[0] == vertice_identificador:
-            print(vertice)
-            return vertice
+        if vertice[0] == vertice_identificador[0]:
+            print(vertice[0])
+            print(vertice_identificador)
+            return vertice.copy
     print("------")
 
 # realiza a busca em profundidade
 def DFS(grafo, fonte, sumidouro, caminho):
+    print(grafo[0])
+    print(find_vertex(grafo, fonte))
     indexAtual = grafo[0].index(find_vertex(grafo, fonte))
 
     grafo[0][indexAtual][1] = True
