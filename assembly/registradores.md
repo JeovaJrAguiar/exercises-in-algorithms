@@ -1,7 +1,7 @@
 ### Registros na arquitetura x86. 
 É fato que existem registradores que são compostos por outros retistradores, é como se um fosse formado por mais de um.
 
-##### Os principais registradores são: EAX, EBX, ECX, EDX, ESI, EDI, ESP, EBP.
+### Os principais registradores são: EAX, EBX, ECX, EDX, ESI, EDI, ESP, EBP.
 
 EAX -> AX (acumulator) usado em instruções e operacoes aritméticas para receber valores de cálculos.  
 EBX -> BX (base) usado para enderecamento de memória apra referir ao endereço inicial.  
