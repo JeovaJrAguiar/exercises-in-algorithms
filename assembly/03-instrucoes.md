@@ -27,7 +27,7 @@
 - LOOPE: reduz o valor do contador e verifica se é maior que 0 e se ZF(zero flag) esta definido
 - LOOPNE: reduz o valor do contador e verifica se é maior que 0 e requer que ZF nao esteja definido
 
-### Fluxo e MAnipulacao
+### Fluxo e Manipulacao
 - MOV: mode o valor para o destino
 - RET: retorna um procedimento
 - CALL: chama um procedimento no endereco especificado
