@@ -20,3 +20,8 @@ fim:    j   .L1             # salta para o endereco de L1
 Veja que o Assembler eh diferente do Assembly. Assembler eh um programa montador que traduz a linguagem de montagem (Assembly) para uma linguagem de maquina, que eh o codigo de maquina interpretado pelo processador
 
 
+#### Curiosidades
+Operações com inteiros podem ter operandos positivos e negativos, e talvez,
+dependendo da aplicação, um programa deva detectar a ocorrência de overflow, quando a soma
+de dois números de 32 bits produz um resultado que só pode ser representado corretamente
+em 33 bits
