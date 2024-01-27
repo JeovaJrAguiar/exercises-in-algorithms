@@ -14,3 +14,13 @@ Aqui na figura 11.4 vai mostrar um exemplo de como se comporta a alocacao em mem
 ![Alt text](./imagens/figura-11-4.png)
 
 E finalizando o assunto dessa imagem acima, elementos contiguos de vetores e estruturas de dados sao alocados sempre em enderecos contiguos, ou seja V[i+1] eh alocado no endereco seguinte a V[i]. O que voce deve entender eh que existe uma dependencia do proximo valor a ser indexado, e essa dependencia eh dada pelo atual endereco alocado, assim o endereco do 'elemento seguinte' depende do tipo dos elementos do vetor V.
+
+Quem programa em *assebly* controla **todas** as estrutuas de dados, e quando digo controla eh literalmente controla todas as estruturas de dados, sendo assim do ponto de vista de alto nivel uma responsabilidade de suma importancia. Acessar palavras de 4 em 4 *bytes*, elementos de vetores que dependem diretamente do tipos dos elementos, elementos de vetores em enderecos que dependem do **sizeof()** dos elementos e por ai vai. Nao sendo permitido o luxo de utilizar abstracoes de linguagens de alto nivel como C quando programa-se em *assembly*.  
+
+Em C por exemplo uma matriz eh alocada como um vetor de vetores, ja em *assembly* para elementos do tipo *T*, linhas com **m** linhas e **n** colunas, o endereco do elemento de indices *i, j* eh obtido com a equacao 11.2. E na figura 11.5, eh mostrado o diagrama que relaciona o endereco base da matriz ( M = &(M[0][0]) ), linhas e colunas de uma matriz de elementos do tipo *T*.
+
+```
+Equacao 11.2
+&(M[i][j]) = &(M[0][0]) + |T|(n * i+j) 
+``` 
+
