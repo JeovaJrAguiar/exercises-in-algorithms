@@ -24,3 +24,5 @@ Equacao 11.2
 &(M[i][j]) = &(M[0][0]) + |T|(n * i+j) 
 ``` 
 
+![alt text](./imagens/figura-11-5.png)
+

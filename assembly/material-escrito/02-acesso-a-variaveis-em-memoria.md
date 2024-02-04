@@ -11,7 +11,7 @@ Outra caracteristica eh que os bytes sao armazenados de maneira sequencia no vet
 
 ## Tipos de instrucoes para acessar a memoria: *loads* e *stores*
 
-Ambas possuem tabanhos: *byte, half word(2 bytes) e word(4 bytes)*. A instrucao lw(*load word*) copia o conteudo de uma **palavra em memoria para um registrador**, e o sw(*store word*) copia o conteudo de um **registrador para uma palavra na memoria**. O campo *desl16* é um inteiro representado em 16 bits.  
+Ambas possuem tamanhos: *byte, half word(2 bytes) e word(4 bytes)*. A instrucao lw(*load word*) copia o conteudo de uma **palavra em memoria para um registrador**, e o sw(*store word*) copia o conteudo de um **registrador para uma palavra na memoria**. O campo *desl16* é um inteiro representado em 16 bits.  
 
 Exemplo:
 ```
