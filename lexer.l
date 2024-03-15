@@ -25,7 +25,7 @@ branco          [ ]
 void main(){
         yylex();
 
-        printf("\n %d Decimal \n", qtdDecimal);
+        printf("\n%d Decimal \n", qtdDecimal);
         printf("%d Octal \n", qtdOctal);
         printf("%d Hexadecimal \n", qtdHexadecimal);
         printf("%d Real \n", qtdReal);
