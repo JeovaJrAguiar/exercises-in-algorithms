@@ -1,0 +1,21 @@
+Pseudocodigo para uma função dentro de um lexer.
+
+Token Authomath Reconhecedor (TAR): imprime os tokens e lexemas de uma entrada.
+isAlphabetic(): retorna True se os caracteres da sequencia fazem parte do alfabeto que a linguagem aceita.
+isEmpty(): retorna True se o elemento esta vazio.
+typeLexema(): retorna o tipo do elemento, pode ser um enumerate.
+
+TAR (string sequenceCaracter):
+    if isAlphabetic(sequenceCaracter) == True:
+        print("Erro: existe caracter na string que não faz parte do alfabeto")
+
+    auxSequence = null
+    typeToken = enumToken
+    for caracter in sequenceCaracter:
+        if isEmpty(auxSequence) == False and  typeLexema(caracter, typeToken) == True:
+            auxSequence = auxSequence + caracter
+
+    print("Token:" + typeToken)
+    print("Lexema: " + auxSequence)    
+
+    TAR(sequenceCaracter - auxSequence)
