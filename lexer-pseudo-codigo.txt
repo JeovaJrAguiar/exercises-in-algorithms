@@ -1,7 +1,7 @@
 Pseudocodigo para uma função dentro de um lexer.
 
 Token Authomath Reconhecedor (TAR): imprime os tokens e lexemas de uma entrada.
-isAlphabetic(): retorna True se os caracteres da sequencia fazem parte do alfabeto que a linguagem aceita.
+isAlphabetic(): retorna True se os caracteres da sequencia fazem parte do alfabeto que o automato reconhece.
 isEmpty(): retorna True se o elemento esta vazio.
 typeLexema(): retorna o tipo do elemento, pode ser um enumerate.
 
