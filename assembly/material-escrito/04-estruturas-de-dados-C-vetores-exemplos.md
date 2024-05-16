@@ -32,3 +32,24 @@ V[0] = V[1] + V[2]* 16      addu    r3, r2, r1      # r3 <- V + j*4
                             addu    r3, ri, 4           # r3 <- V + i*14
                             sw      r7, 0(r2)       # M[V + i*4] <- r7
 ``` 
+
+**EXEMPLO 11.3**
+```
+C                                   Assemble
+typedef struct A {                  
+    int x;                          
+    int y;                          
+    int z;                          
+    int w;                          
+} aType;                            
+...                                 
+aType V[16]                         la      r5, 0x008000000     # r5 <- &(V[0])
+...                                 lw      r8, (48+4)(r5)      # r8 <- V[3].y
+    m = V[3].y;                     lw      r9, (48+8)(r5)      # r9 <- V[3].z
+    n = V[3].z;                     add     r5, r8, r9          
+    V[3].x = m+n                    sw      r5, (48+0) (r5)     # V[3].x <- m+n
+```                                   
+
+Acima está disposto em C e em Assemble um trexo de código que demonstra a aplicabilidade de operações de acesso, registro e  alteração de vetores. Ou seja, manipulação da memória a partir do conceito de tipos de dados.  
+
+Ademais, para o exemplo citado acima temos a definição de um tipo de dado definido como aType que possui 4 atributos (x, y, z e w), cada um sendo um inteiro assim como temos disposto o vetor V com 16 elementos do tipo aType.
