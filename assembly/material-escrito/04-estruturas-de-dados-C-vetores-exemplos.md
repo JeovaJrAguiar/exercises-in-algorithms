@@ -62,13 +62,21 @@ Agora vamos destrinchar um pouco mais sobre esse trecho acima citado. Relembrand
 
 - **lw** -> Load Word: é usado para carregar um valor de 32 bits (ou um "word") da memória para um registrador
   - sintaxe: ```lw reg, offset(base_reg)``` 
-  - exemplo: ````lw r8, (48+4)(r5)``` significa que o valor armazenado na posição de memória calculada como 'base_address + offset' (onde 'base_address' é o valor contido em 'r5' e 'offset' é 52 no caso) é carregado no registrador 'r8'
+  - exemplo: ```lw r8, (48+4)(r5)``` significa que o valor armazenado na posição de memória calculada como 'base_address + offset' (onde 'base_address' é o valor contido em 'r5' e 'offset' é 52 no caso) é carregado no registrador 'r8'
 
 - **add** -> Addition: como o nome sugere é usado para somar os valores de dois registradores e armazenar o resultado em um registrador de destino.
   - sintaxe: ```add destination_reg, source_reg1, source_reg2```
-  - exemplo: ```add r5, r8, r9`` soma os valores dos registradores 'r8' (que contém V[3].y) e 'r9' (que contém V[3].z), armazenando o resultado em 'r5'.
+  - exemplo: ```add r5, r8, r9``` soma os valores dos registradores 'r8' (que contém V[3].y) e 'r9' (que contém V[3].z), armazenando o resultado em 'r5'.
 
 - **sw** -> Storage Word: é usado para armazenar um valor de 32 bits de um registrador na memória
   - sintaxe: ```sw reg, offset(base_reg)```
   - exemplo: ```sw r5, (48+0)(r5)``` significa que o valor no registrador 'r5' é armazenado na posição de memória calculada como 'base_address + offset' (onde 'base_address' é o valor contido em 'r5' e 'offset' é o 48 no caso).
 
+Talvez surga uma dúvida na diferença entre **lw** e **sw** pois ambas as pseudo-instruções manipulam sim os valores contidos os registradores, porém elas realizam operações opostas, enquanto *lw* transfere dados da memória para o registrador o *sw* transfere dados do registrador para a memória. Esse fato trivial acredito que você já tenha sub-entendido mas deixarei claro, você na função de programador está manipulado diretamente com duas partes do computador: a memória principal (que geralmente é a memória RAM) e uma parte do processador (CPU) que se chama Registradores que nada mais são que pequenos e rápidos artefatos de armazenamento. Então:
+
+Direção da Transferência de Dados:
+  - lw (Load Word) transfere dados da memória para um registrador.
+  - sw (Store Word) transfere dados de um registrador para a memória.
+Uso:
+  - lw é usado quando você precisa ler ou carregar dados da memória para trabalhar com eles em registradores.
+  - sw é usado quando você precisa salvar ou armazenar dados de um registrador para a memória.
