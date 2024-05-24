@@ -77,6 +77,7 @@ Talvez surga uma dúvida na diferença entre **lw** e **sw** pois ambas as pseud
 Direção da Transferência de Dados:
   - lw (Load Word) transfere dados da memória para um registrador.
   - sw (Store Word) transfere dados de um registrador para a memória.
-Uso:
+
+Uso:  
   - lw é usado quando você precisa ler ou carregar dados da memória para trabalhar com eles em registradores.
   - sw é usado quando você precisa salvar ou armazenar dados de um registrador para a memória.
