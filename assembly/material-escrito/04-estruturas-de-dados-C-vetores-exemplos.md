@@ -46,10 +46,29 @@ typedef struct A {
 aType V[16]                         la      r5, 0x008000000     # r5 <- &(V[0])
 ...                                 lw      r8, (48+4)(r5)      # r8 <- V[3].y
     m = V[3].y;                     lw      r9, (48+8)(r5)      # r9 <- V[3].z
-    n = V[3].z;                     add     r5, r8, r9          
+    n = V[3].z;                     add     r5, r8, r9          # r5 <- r8 + r9 (soma de V[3].y e V[3].z)
     V[3].x = m+n                    sw      r5, (48+0) (r5)     # V[3].x <- m+n
-```                                   
+```                             
 
-Acima está disposto em C e em Assemble um trexo de código que demonstra a aplicabilidade de operações de acesso, registro e  alteração de vetores. Ou seja, manipulação da memória a partir do conceito de tipos de dados.  
+Acima está disposto em C e em Assemble um trecho de código que demonstra a aplicabilidade de operações de acesso, registro e  alteração de vetores. Ou seja, manipulação da memória a partir do conceito de tipos de dados.  
 
-Ademais, para o exemplo citado acima temos a definição de um tipo de dado definido como aType que possui 4 atributos (x, y, z e w), cada um sendo um inteiro assim como temos disposto o vetor V com 16 elementos do tipo aType.
+Ademais, para o exemplo citado acima temos a definição de um tipo de dado definido como aType que possui 4 atributos (x, y, z e w), cada um sendo um inteiro assim como temos disposto o vetor V com 16 elementos do tipo aType.  
+
+Agora vamos destrinchar um pouco mais sobre esse trecho acima citado. Relembrando, estamos aqui tratando de um assemble para a memória MIPS(Microprocessor without Interlocked Pipelina Stages) então as instruções a seguir são referentes a esse modelo de memória. As instruções para esse exemplo são *la*, *lw*, *add* e *sw*.  
+
+- **la** -> Load Address: é uma pseudo-instrução usada para carregar um endereço em um registrador.
+  - sintaxe: ```la reg, address``` 
+  - exemplo: ```la r5, 0x008000000``` quer dizer que o endereço '00x8000000' será carregado no registrador 'r5'
+
+- **lw** -> Load Word: é usado para carregar um valor de 32 bits (ou um "word") da memória para um registrador
+  - sintaxe: ```lw reg, offset(base_reg)``` 
+  - exemplo: ````lw r8, (48+4)(r5)``` significa que o valor armazenado na posição de memória calculada como 'base_address + offset' (onde 'base_address' é o valor contido em 'r5' e 'offset' é 52 no caso) é carregado no registrador 'r8'
+
+- **add** -> Addition: como o nome sugere é usado para somar os valores de dois registradores e armazenar o resultado em um registrador de destino.
+  - sintaxe: ```add destination_reg, source_reg1, source_reg2```
+  - exemplo: ```add r5, r8, r9`` soma os valores dos registradores 'r8' (que contém V[3].y) e 'r9' (que contém V[3].z), armazenando o resultado em 'r5'.
+
+- **sw** -> Storage Word: é usado para armazenar um valor de 32 bits de um registrador na memória
+  - sintaxe: ```sw reg, offset(base_reg)```
+  - exemplo: ```sw r5, (48+0)(r5)``` significa que o valor no registrador 'r5' é armazenado na posição de memória calculada como 'base_address + offset' (onde 'base_address' é o valor contido em 'r5' e 'offset' é o 48 no caso).
+
