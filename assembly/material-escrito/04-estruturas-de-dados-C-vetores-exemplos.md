@@ -47,7 +47,7 @@ aType V[16]                         la      r5, 0x008000000     # r5 <- &(V[0])
 ...                                 lw      r8, (48+4)(r5)      # r8 <- V[3].y
     m = V[3].y;                     lw      r9, (48+8)(r5)      # r9 <- V[3].z
     n = V[3].z;                     add     r5, r8, r9          # r5 <- r8 + r9 (soma de V[3].y e V[3].z)
-    V[3].x = m+n                    sw      r5, (48+0) (r5)     # V[3].x <- m+n
+    V[3].x = m+n                    sw      r5, (48+0)(r5)     # V[3].x <- m+n
 ```                             
 
 Acima está disposto em C e em Assemble um trecho de código que demonstra a aplicabilidade de operações de acesso, registro e  alteração de vetores. Ou seja, manipulação da memória a partir do conceito de tipos de dados.  
@@ -81,3 +81,30 @@ Direção da Transferência de Dados:
 Uso:  
   - lw é usado quando você precisa ler ou carregar dados da memória para trabalhar com eles em registradores.
   - sw é usado quando você precisa salvar ou armazenar dados de um registrador para a memória.
+
+![alt text](./imagens/figura-11-7.png)
+
+**EXEMPLO 11.4** 
+Iremos agora explanar mais sobre o que podemos chamar de indexação indireta
+Vejamos um exemplo com indexação indireta de um vetor. O conteúdo da i-ésima
+posição do vetor X é usado para indexar o vetor Y.
+int a , i ;
+int X [2048] , Y [256];
+...
+a = a + X [ i ] + Y [ ( X [ i ] % 256) ]; // MOD
+O resto da divisão inteira é obtido com uma divisão, que é uma operação custosa. Ao invés da divisão
+pode-se usar o seguinte truque: se P = 2k
+, k > 1, então n % P = n ∧ (P − 1). Para P = 16, temos
+que n % 16 ∈ [0, 15], e 16 − 1 = 15 = 11112. A conjunção de qualquer número com 15 resulta num
+número que é, no máximo, 15.
+la rx , X # rx <- &( X [0])
+la ry , Y # ry <- &( Y [0])
+sll t1 , ri , 2 # i *4
+add t2 , t1 , rx # X + i *4
+lw t3 , 0( t2 ) # t3 <- X [ i ]
+andi t4 , t3 , (256 -1) # t3 % 256 = t3 AND 0 x0ff
+sll t4 , t4 , 2 # ( t4 % 256)*4
+add t4 , t4 , ry # Y + ( t4 % 256)*4
+lw t5 , 0( t4 ) # t5 <- Y [ X [ i ] ]
+add t6 , t5 , t3 # X [ i ] + Y [ X [ i ] ]
+add ra , ra , t6 # a = a + X [ i ] + Y [ X [ i ] ]
