@@ -14,10 +14,10 @@ import sys
 #
 
 def factorial(n):
-    if n==0:
+    if n==0 or n==1:
         return 0
     
-    return factorial(n-1)
+    return ( n* factorial(n-1) )
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
