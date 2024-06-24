@@ -27,4 +27,3 @@ if __name__ == '__main__':
     number = str(to_binary(n))
     print(counter_of('1', number))
     
-    
