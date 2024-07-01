@@ -85,26 +85,30 @@ Uso:
 ![alt text](./imagens/figura-11-7.png)
 
 **EXEMPLO 11.4** 
-Iremos agora explanar mais sobre o que podemos chamar de indexação indireta
-Vejamos um exemplo com indexação indireta de um vetor. O conteúdo da i-ésima
-posição do vetor X é usado para indexar o vetor Y.
+Iremos agora explanar mais sobre o que podemos chamar de indexação indireta. Vejamos um exemplo com indexação indireta de um vetor. O conteúdo da i-ésima posição do vetor X é usado para indexar o vetor Y.
+```
+C
+
 int a , i ;
 int X [2048] , Y [256];
-...
+
 a = a + X [ i ] + Y [ ( X [ i ] % 256) ]; // MOD
-O resto da divisão inteira é obtido com uma divisão, que é uma operação custosa. Ao invés da divisão
-pode-se usar o seguinte truque: se P = 2k
-, k > 1, então n % P = n ∧ (P − 1). Para P = 16, temos
-que n % 16 ∈ [0, 15], e 16 − 1 = 15 = 11112. A conjunção de qualquer número com 15 resulta num
-número que é, no máximo, 15.
-la rx , X # rx <- &( X [0])
-la ry , Y # ry <- &( Y [0])
-sll t1 , ri , 2 # i *4
-add t2 , t1 , rx # X + i *4
-lw t3 , 0( t2 ) # t3 <- X [ i ]
-andi t4 , t3 , (256 -1) # t3 % 256 = t3 AND 0 x0ff
-sll t4 , t4 , 2 # ( t4 % 256)*4
-add t4 , t4 , ry # Y + ( t4 % 256)*4
-lw t5 , 0( t4 ) # t5 <- Y [ X [ i ] ]
-add t6 , t5 , t3 # X [ i ] + Y [ X [ i ] ]
-add ra , ra , t6 # a = a + X [ i ] + Y [ X [ i ] ]
+```
+
+Foi uma descoberta minha que a operação de divisão eh mais custosa e, consequentemente a operação de divisão inteira também pois faz uso de divisão. A abordagem que o autor trás para substituir o divisão inteira é o seguinte: tenha para si que P eh um elemento de potenia 2 e eh maior que 2 (P = 2^k, k > 1), você então n % P = n ∧ (P − 1). Para P = 16, temos que n % 16 ∈ [0, 15], e 16 − 1 = 15 = 11112. A conjunção de qualquer número com 15 resulta num número que é, no máximo, 15.
+
+```
+Assembly
+la rx , X                           # rx <- &( X [0])
+la ry , Y                           # ry <- &( Y [0])
+
+sll t1 , ri , 2                     # i *4
+add t2 , t1 , rx                    # X + i *4
+lw t3 , 0( t2 )                     # t3 <- X [ i ]
+andi t4 , t3 , (256 -1)             # t3 % 256 = t3 AND 0 x0ff
+sll t4 , t4 , 2                     # ( t4 % 256)*4
+add t4 , t4 , ry                    # Y + ( t4 % 256)*4
+lw t5 , 0( t4 )                     # t5 <- Y [ X [ i ] ]
+add t6 , t5 , t3                    # X [ i ] + Y [ X [ i ] ]
+add ra , ra , t6                    # a = a + X [ i ] + Y [ X [ i ] ]
+```
