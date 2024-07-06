@@ -95,7 +95,7 @@ int X [2048] , Y [256];
 a = a + X [ i ] + Y [ ( X [ i ] % 256) ]; // MOD
 ```
 
-Foi uma descoberta minha que a operação de divisão eh mais custosa e, consequentemente a operação de divisão inteira também pois faz uso de divisão. A abordagem que o autor trás para substituir o divisão inteira é o seguinte: tenha para si que P eh um elemento de potenia 2 e eh maior que 2 (P = 2^k, k > 1), você então n % P = n ∧ (P − 1). Para P = 16, temos que n % 16 ∈ [0, 15], e 16 − 1 = 15 = 11112. A conjunção de qualquer número com 15 resulta num número que é, no máximo, 15.
+Foi uma descoberta minha que a operação de divisão eh mais custosa e, consequentemente a operação de divisão inteira também pois faz uso de divisão. A abordagem que o autor trás para substituir o divisão inteira é o seguinte: tenha para si que P eh um elemento de potenia 2 e eh maior que 2 (P = 2^k, k > 1), você tem então que n%P = n∧(P−1), e essa operação ^ ou and ou E logico pode ser usada, na verdade eh usada como uma conjuntao bit a bit, o que é muito menos custoso, e voce me pergunta o por que eh esse valor (P-1) eh exatamente por que dessa maneira todos os binarios que serao utilizados possuirao somentes bits validos. Para P = 16, temos que n % 16 ∈ [0, 15], e 16 − 1 = 15 = 11112. A conjunção de qualquer número com 15 resulta num número que é, no máximo, 15.
 
 ```
 Assembly
