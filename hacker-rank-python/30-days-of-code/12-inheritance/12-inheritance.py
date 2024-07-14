@@ -18,7 +18,7 @@ class Student(Person):
     #
     # Write your constructor here
     def __init__(self, firstName, lastName, idNumber, scores):
-        super.__init__(firstName, lastName, idNumber)
+        super().__init__(firstName, lastName, idNumber)
         self.scores = scores
     
 
@@ -28,15 +28,15 @@ class Student(Person):
     # Write your function here
     def calculate(self):
         average = sum(self.scores) / len(self.scores)
-        if average >= 90:
+        if average >= 90 and average <= 100:
             return 'O'
-        elif average >= 80:
+        elif average >= 80 and average < 90:
             return 'E'
-        elif average >= 70:
+        elif average >= 70 and average < 80:
             return 'A'
-        elif average >= 55:
+        elif average >= 55 and average < 70:
             return 'P'
-        elif average >= 40:
+        elif average >= 40 and average < 55:
             return 'D'
         else:
             return 'T'
