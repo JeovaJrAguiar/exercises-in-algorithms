@@ -13,7 +13,18 @@ import sys
 #
 
 def plusMinus(arr):
-    # Write your code here
+    positive = len([x for x in arr if x > 0])
+    zero = len([x for x in arr if x == 0])
+    negative = len([x for x in arr if x < 0])
+    total = len(arr)
+    
+    positive = positive / total
+    negative = negative / total
+    zero = zero / total
+    
+    print(positive)
+    print(negative)
+    print(zero)
 
 if __name__ == '__main__':
     n = int(input().strip())
